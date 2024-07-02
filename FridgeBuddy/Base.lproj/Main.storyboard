@@ -35,9 +35,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="k4Q-Hu-3jm">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="5Kd-9o-i5h" kind="relationship" relationship="rootViewController" id="b0m-B9-EG5"/>
@@ -55,8 +52,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F4N-Ne-Ne9">
-                                <rect key="frame" x="16" y="103" width="361" height="666"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="F4N-Ne-Ne9">
+                                <rect key="frame" x="16" y="159" width="361" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" id="vqg-pr-dwF">
@@ -104,36 +101,50 @@
                                     <segue destination="QQc-2y-6Q2" kind="show" id="lv8-BA-KfK"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="e3g-v3-Q6N">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Kd-9o-i5h" id="Alc-3u-EVi"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1vf-Oo-eOb"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1vf-Oo-eOb" firstAttribute="trailing" secondItem="9qS-fK-Zrk" secondAttribute="trailing" constant="16" id="1U0-yV-3cf"/>
                             <constraint firstItem="9qS-fK-Zrk" firstAttribute="bottom" secondItem="1vf-Oo-eOb" secondAttribute="bottom" constant="-16" id="50q-mM-U3q"/>
+                            <constraint firstItem="e3g-v3-Q6N" firstAttribute="top" secondItem="1vf-Oo-eOb" secondAttribute="top" id="8lG-Mq-N7L"/>
                             <constraint firstItem="1vf-Oo-eOb" firstAttribute="bottom" secondItem="F4N-Ne-Ne9" secondAttribute="bottom" id="8no-Vh-wuz"/>
-                            <constraint firstItem="F4N-Ne-Ne9" firstAttribute="top" secondItem="1vf-Oo-eOb" secondAttribute="top" id="IXn-OH-8pR"/>
+                            <constraint firstItem="F4N-Ne-Ne9" firstAttribute="top" secondItem="e3g-v3-Q6N" secondAttribute="bottom" id="QzM-Fv-WyE"/>
+                            <constraint firstItem="e3g-v3-Q6N" firstAttribute="leading" secondItem="1vf-Oo-eOb" secondAttribute="leading" id="S3e-cl-1uj"/>
                             <constraint firstItem="F4N-Ne-Ne9" firstAttribute="leading" secondItem="1vf-Oo-eOb" secondAttribute="leading" constant="16" id="YCS-01-Gxb"/>
                             <constraint firstItem="1vf-Oo-eOb" firstAttribute="trailing" secondItem="F4N-Ne-Ne9" secondAttribute="trailing" constant="16" id="bQ1-Ba-fzF"/>
+                            <constraint firstItem="1vf-Oo-eOb" firstAttribute="trailing" secondItem="e3g-v3-Q6N" secondAttribute="trailing" id="gJE-Ty-PV6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="WH6-hF-91a">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="OdE-UC-0GL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="D7u-CH-CN3">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ENC-yI-gkq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="UhD-6X-mBw">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.decrease.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="sortButtonTapped:" destination="5Kd-9o-i5h" eventType="touchUpInside" id="JrU-YP-hyv"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addBtn" destination="9qS-fK-Zrk" id="TSn-Nd-qDv"/>
                         <outlet property="productsList" destination="F4N-Ne-Ne9" id="tuz-6n-Cgs"/>
+                        <outlet property="searchBar" destination="e3g-v3-Q6N" id="7Th-1S-hqG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d32-Hu-NPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1343" y="1532"/>
+            <point key="canvasLocation" x="-1344.2748091603053" y="1531.6901408450706"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="RD8-rn-LW6">
@@ -143,9 +154,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Qz6-xG-f32">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="aNh-hv-cS1" kind="relationship" relationship="rootViewController" id="RwG-Q9-E8I"/>
@@ -315,7 +323,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dqK-Nr-F5m"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dqK-Nr-F5m" firstAttribute="trailing" secondItem="xOB-g0-klw" secondAttribute="trailing" constant="16" id="6Rm-5a-keu"/>
                             <constraint firstItem="xOB-g0-klw" firstAttribute="bottom" secondItem="dqK-Nr-F5m" secondAttribute="bottom" constant="-16" id="Dc5-fy-d3r"/>
@@ -363,16 +371,30 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gJ-sW-gyo">
                                 <rect key="frame" x="328" y="208.66666666666666" width="51" height="31"/>
+                                <connections>
+                                    <action selector="notificationSwitchPressed:" destination="3Nl-2x-dXk" eventType="valueChanged" id="Rtr-kp-tIl"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify Before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hk-jM-5LJ">
-                                <rect key="frame" x="16" y="284" width="146" height="32"/>
+                                <rect key="frame" x="16" y="280" width="146" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1 Day" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h18-eL-WGR" customClass="TextField" customModule="FridgeBuddy" customModuleProvider="target">
-                                <rect key="frame" x="314" y="283" width="63" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1 Day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h18-eL-WGR" customClass="TextField" customModule="FridgeBuddy" customModuleProvider="target">
+                                <rect key="frame" x="320" y="281.66666666666669" width="57" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NND-CU-FaW">
+                                <rect key="frame" x="16" y="352" width="98" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10:00 PM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eul-ix-nt6" customClass="TextField" customModule="FridgeBuddy" customModuleProvider="target">
+                                <rect key="frame" x="276" y="353.66666666666669" width="101" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -380,19 +402,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0gJ-sW-gyo" firstAttribute="leading" secondItem="gdA-8Q-vBw" secondAttribute="trailing" constant="170" id="5gg-oM-R8e"/>
+                            <constraint firstItem="NND-CU-FaW" firstAttribute="top" secondItem="3hk-jM-5LJ" secondAttribute="bottom" constant="40" id="7DL-CA-wCM"/>
                             <constraint firstItem="3hk-jM-5LJ" firstAttribute="leading" secondItem="kVB-H6-FKp" secondAttribute="leading" constant="16" id="IyJ-4f-f4i"/>
+                            <constraint firstItem="kVB-H6-FKp" firstAttribute="trailing" secondItem="eul-ix-nt6" secondAttribute="trailing" constant="16" id="LBf-KT-025"/>
                             <constraint firstItem="kVB-H6-FKp" firstAttribute="trailing" secondItem="h18-eL-WGR" secondAttribute="trailing" constant="16" id="W3X-PH-ZQH"/>
-                            <constraint firstItem="3hk-jM-5LJ" firstAttribute="top" secondItem="gdA-8Q-vBw" secondAttribute="bottom" constant="44" id="WwY-S6-NK7"/>
+                            <constraint firstItem="3hk-jM-5LJ" firstAttribute="top" secondItem="gdA-8Q-vBw" secondAttribute="bottom" constant="40" id="WwY-S6-NK7"/>
                             <constraint firstItem="kVB-H6-FKp" firstAttribute="trailing" secondItem="0gJ-sW-gyo" secondAttribute="trailing" constant="16" id="Z1V-VY-ag2"/>
                             <constraint firstItem="gdA-8Q-vBw" firstAttribute="top" secondItem="kVB-H6-FKp" secondAttribute="top" constant="53" id="ZTW-qX-DYf"/>
+                            <constraint firstItem="NND-CU-FaW" firstAttribute="leading" secondItem="kVB-H6-FKp" secondAttribute="leading" constant="16" id="ZdN-jq-8wc"/>
                             <constraint firstItem="0gJ-sW-gyo" firstAttribute="centerY" secondItem="gdA-8Q-vBw" secondAttribute="centerY" id="eoF-AZ-xhC"/>
                             <constraint firstItem="h18-eL-WGR" firstAttribute="centerY" secondItem="3hk-jM-5LJ" secondAttribute="centerY" id="f8f-nl-pu8"/>
                             <constraint firstItem="gdA-8Q-vBw" firstAttribute="leading" secondItem="kVB-H6-FKp" secondAttribute="leading" constant="16" id="pC4-6M-TI5"/>
+                            <constraint firstItem="eul-ix-nt6" firstAttribute="centerY" secondItem="NND-CU-FaW" secondAttribute="centerY" id="ufp-jv-Hkh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="4bv-TU-LGD"/>
                     <connections>
                         <outlet property="notificationSwitch" destination="0gJ-sW-gyo" id="rah-R8-ep8"/>
+                        <outlet property="notifyAtTF" destination="eul-ix-nt6" id="HUI-hV-kg6"/>
                         <outlet property="notifyBeforeTF" destination="h18-eL-WGR" id="8jd-yC-5yJ"/>
                     </connections>
                 </viewController>

@@ -26,6 +26,8 @@
 		40CB4DD12C27B3A100F564D3 /* ShoppingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB4DCE2C27B3A100F564D3 /* ShoppingTableCell.swift */; };
 		40CB4DD32C29046000F564D3 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CB4DD22C29046000F564D3 /* SettingsController.swift */; };
 		40ED329D2C2DEDFB00316894 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED329C2C2DEDFB00316894 /* TextField.swift */; };
+		40ED329F2C2E4BFD00316894 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED329E2C2E4BFD00316894 /* UserSettings.swift */; };
+		40ED32A12C2F421900316894 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ED32A02C2F421900316894 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +42,7 @@
 		404611742C1BD7F30030505B /* FridgeBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404611772C1BD7F30030505B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		404611792C1BD7F30030505B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4046117B2C1BD7F30030505B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		4046117B2C1BD7F30030505B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		4046117E2C1BD7F30030505B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		404611812C1BD7F30030505B /* FridgeBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeBuddy.xcdatamodel; sourceTree = "<group>"; };
 		404611832C1BD7F30030505B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +52,8 @@
 		40CB4DCF2C27B3A100F564D3 /* ShoppingTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingTableCell.xib; sourceTree = "<group>"; };
 		40CB4DD22C29046000F564D3 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		40ED329C2C2DEDFB00316894 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		40ED329E2C2E4BFD00316894 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		40ED32A02C2F421900316894 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 				40CB4DCF2C27B3A100F564D3 /* ShoppingTableCell.xib */,
 				40CB4DD22C29046000F564D3 /* SettingsController.swift */,
 				40ED329C2C2DEDFB00316894 /* TextField.swift */,
+				40ED329E2C2E4BFD00316894 /* UserSettings.swift */,
+				40ED32A02C2F421900316894 /* Keys.swift */,
 			);
 			path = FridgeBuddy;
 			sourceTree = "<group>";
@@ -187,7 +193,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4046117C2C1BD7F30030505B /* HomeController.swift in Sources */,
+				40ED32A12C2F421900316894 /* Keys.swift in Sources */,
 				4025D4162C22ABDD00326DF3 /* Singleton.swift in Sources */,
+				40ED329F2C2E4BFD00316894 /* UserSettings.swift in Sources */,
 				40CB4DD12C27B3A100F564D3 /* ShoppingTableCell.swift in Sources */,
 				40ED329D2C2DEDFB00316894 /* TextField.swift in Sources */,
 				4025D4092C1CC3A300326DF3 /* ShoppingListController.swift in Sources */,
@@ -358,6 +366,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -385,6 +394,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

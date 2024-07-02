@@ -18,6 +18,8 @@ class AddProductController: UIViewController {
    
     var logger: Logger!
     
+    let userSettings = UserSettings.shared
+    
     override func viewDidLoad() {
         logger = Logger()
         
@@ -49,9 +51,68 @@ class AddProductController: UIViewController {
         do {
             try context?.save()
             Singleton.shared.dataChanged = true
+            
+            if self.userSettings.notificationStatus! {
+                scheduleNotification(product: product)
+            }
+            
         } catch {
             logger.error("Error saving product")
         }
     }
     
+    func scheduleNotification(product: Product) {
+        let identifier = "com.priyanshparekh.FridgeBuddy"
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        
+        let title = "\(product.name ?? "") is about to expire"
+        let body = "\(formatter.string(from: product.lastDate!)) is the last date to consume"
+        
+        let time = userSettings.notifyAt!
+        let notifyBefore = userSettings.notifyBefore!
+        print("Notify Before: \(notifyBefore)")
+        
+        let day = product.lastDate!.get(.day) - notifyBefore
+        var month = product.lastDate!.get(.month)
+        if day < 1 {
+            month = month - 1
+        }
+        let hour = time.get(.hour)
+        let minute = time.get(.minute)
+        let isDaily = false
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = .default
+        
+        let calendar = Calendar.current
+        var dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current)
+        dateComponents.day = product.lastDate!.get(.day) - notifyBefore
+        dateComponents.month = product.lastDate!.get(.month)
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: isDaily)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        notificationCenter.add(request)
+    }
+}
+
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
 }
